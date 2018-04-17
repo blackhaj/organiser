@@ -1,0 +1,18 @@
+{% extends 'projectmanager/main.html' %}
+
+{% block content %}
+    <h1>Project List</h1>
+    
+    {% if project_list %}
+    <ul>
+
+        {% for project in project_list %}
+        <li>
+            {{ project.project_name }} ( XX linked tasks) # need to work out this logic
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>There currently aren't any projects</p>
+    {% endif %}
+{% endblock %}
