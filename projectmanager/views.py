@@ -12,4 +12,5 @@ def index(request):
 class ProjectListView(generic.ListView):
     model = Project
 
-    
+class ProjectDetailView(generic.DetailView):
+    model = Project

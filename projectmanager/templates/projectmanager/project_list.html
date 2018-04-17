@@ -8,7 +8,7 @@
 
         {% for project in project_list %}
         <li>
-            {{ project.project_name }} ( XX linked tasks) # need to work out this logic
+            {{ project.project_name }} ({{ project.task_set.all|length }} tasks) 
         </li>
         {% endfor %}
     </ul>
