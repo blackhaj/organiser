@@ -1,14 +1,14 @@
 {% extends 'projectmanager/main.html' %}
 
 {% block content %}
-    <h1>Project List</h1>
+    <h3>Project List</h3>
     
     {% if project_list %}
     <ul>
 
         {% for project in project_list %}
         <li>
-            {{ project.project_name }} ({{ project.task_set.all|length }} tasks) 
+            <a href="{% url 'projectmanager:project-details' project.id %}">{{ project.project_name }} ({{ project.task_set.all|length }} tasks)</a> 
         </li>
         {% endfor %}
     </ul>

@@ -7,6 +7,9 @@ class Project(models.Model):
     project_name = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+    def get_absolute_url(self):
+        return "/projectmanager/projects/%i/" % self.id #had to add this so that when a project is created it redirects to the details page of that project
 
 class Task(models.Model):
     project = models.ForeignKey(Project, on_delete=models.SET_NULL, null=True) #null has to be set to True to allow SET_NULL to work
