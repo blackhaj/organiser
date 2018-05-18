@@ -1,0 +1,18 @@
+{% extends 'projectmanager/main.html' %}
+
+{% block content %}
+    <h3>Task List</h3>
+    
+    {% if task_list %}
+    <ul>
+
+        {% for task in task_list %}
+        <li>
+            <a href="{% url 'projectmanager:task-details' task.id %}">{{ task.task_title }}</a> ({{ task.project.project_name }}) | {{ task.done }} | {{ task.priority }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>There currently aren't any Tasks</p>
+    {% endif %}
+{% endblock %}

@@ -2,17 +2,19 @@
 
 {% block content %}
     <h3>Project List</h3>
-    
-    {% if project_list %}
-    <ul>
+    <section>
+        {% if project_list %}
+            {% for project in project_list %}
+                <div class="card">
+                    <div class="container">
+                        <a href="{% url 'projectmanager:project-details' project.id %}">{{ project.project_name }}</a>
 
-        {% for project in project_list %}
-        <li>
-            <a href="{% url 'projectmanager:project-details' project.id %}">{{ project.project_name }} ({{ project.task_set.all|length }} tasks)</a> 
-        </li>
-        {% endfor %}
-    </ul>
+                    </div>
+                </div>
+            {% endfor %}
+    
     {% else %}
         <p>There currently aren't any projects</p>
     {% endif %}
+    </section>
 {% endblock %}

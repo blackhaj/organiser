@@ -1,0 +1,14 @@
+{% extends 'projectmanager/main.html' %}
+
+{% block content %}
+
+    <h3>Delete Task</h3>
+
+    <p> Are you sure you want to delete task: {{ task.task_title }}</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" action="" value="Yes, delete." />
+    </form>
+
+{% endblock %}

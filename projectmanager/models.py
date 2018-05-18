@@ -23,3 +23,6 @@ class Task(models.Model):
     priority = models.IntegerField(choices=priority_choices, default=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return "/projectmanager/tasks/%i/" % self.id

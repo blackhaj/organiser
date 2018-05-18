@@ -8,8 +8,9 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'projectmanager/index.html') #renders the request using the template index.html
+class OverView(generic.ListView):
+    model = Project
+    template_name = 'projectmanager/overview.html'
 
 class ProjectListView(generic.ListView): #change ProjectListView to ProjectList
     model = Project
@@ -29,7 +30,22 @@ class ProjectDeleteView(generic.DeleteView):
     model = Project
     success_url = reverse_lazy('projectmanager:project-list')
 
+class TaskList(generic.ListView):
+    model = Task
 
+class TaskDetail(generic.DetailView):
+    model = Task
+
+class TaskCreate(generic.CreateView):
+    model = Task
+    fields = ['task_title', 'project', 'done', 'priority']
+
+class TaskUpdate(generic.UpdateView):
+    model = Task
+    fields = '__all__'
+class TaskDelete(generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy('projectmanager:task-list')
 
 # def add_new_project(request):
 #     if request.method == 'POST':

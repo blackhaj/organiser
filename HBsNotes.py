@@ -155,3 +155,6 @@ class ProjectListView(generic.ListView):
     {% endif %}
 {% endblock %}
 
+
+#check style sheet is working on the new task form
+#updates not actually working - they are creating new projects/tasks!!

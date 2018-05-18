@@ -1,6 +1,12 @@
 {% extends 'projectmanager/main.html' %}
+<!-- commented out as the stylesheet isn't working on the plane -->
 
 {% block content %}
+
+<script>
+    var elem = document.querySelector('select');
+    var instance = M.FormSelect.init(elem, options);
+</script>
 
     <form action="" method="post">
         {% csrf_token %}

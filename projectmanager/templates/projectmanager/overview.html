@@ -1,0 +1,30 @@
+{% extends 'projectmanager/main.html' %}
+
+{% block content %}
+    <h3>Project and Task Overview</h3>
+    <section>
+        {% if project_list %}
+            {% for project in project_list %}
+                <div class="card">
+                    <div class="container">
+                        <a id="project-title-card" href="{% url 'projectmanager:project-details' project.id %}">{{ project.project_name }}</a>
+                        <div class="project-task-list">
+                            {% if project.task_set.all|length > 0 %}
+                                {% for task in project.task_set.all %}
+                                    <a href="{% url 'projectmanager:task-details' task.id %}">{{ task.task_title }}</a><br>
+                                {% endfor %}
+                            {% else %}
+                                <p>No tasks</p>
+                            {% endif %}
+                        </div> 
+                    </div>
+                </div>
+            {% endfor %}
+    
+    {% else %}
+        <p>There currently aren't any projects</p>
+    {% endif %}
+    </section>
+{% endblock %}
+
+<!-- {{ project.task_set.all|length }} -->

@@ -2,6 +2,11 @@
 
 {% block content %}
 
-    <p> {{ object.project_name }}</p>
+    <div class="card">
+        <div class="container">
+            <div id="project-title-card" >{{ project.project_name }}</div>
+            <a id="edit-button" href="{% url 'projectmanager:project-update' project.id %}">EDIT</a>
+        </div>
+    </div>
      
 {% endblock %}
